@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predictions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        select, button { margin: 10px 0; }
+        div { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Predictions</h1>
+    <form method="post">
+        <select name="commune_name">
+            <option value="">Select a Commune</option>
+            {% for name in commune_names %}
+            <option value="{{ name }}" {% if name == selected_commune %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Load Predictions</button>
+    </form>
+    <div>{{ predictions|safe }}</div>
+</body>
+</html>
